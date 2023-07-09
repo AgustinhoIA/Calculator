@@ -1,0 +1,57 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 375px;
+    width: 350;
+    gap: 5px;
+    border: solid 1px red;
+    background-color: rgb(155, 152, 152);
+    
+}
+.display {
+    height: 50px;
+    width: 300px;
+    border: solid 1px black;
+    background-color: rgb(170, 215, 90);
+}
+
+.btns {
+    display: flex;
+}
+
+.numbers {
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    margin: 4px;
+}
+ .operations {
+    display: flex;
+    flex-wrap: wrap;
+    width: 150px;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    margin: 4px;
+ }
+
+.btn {
+    display: flex;
+    border: solid 1px black;
+    width: 50px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+}
