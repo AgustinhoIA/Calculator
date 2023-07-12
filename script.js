@@ -32,34 +32,37 @@ function operate(number1, number2, operator) {
     case 'X':
       result = multiply(number1, number2)
     case '÷':
-      result = 
+      result = divide(number1, number2)
       break
     default:
       result = 'ERROR'
   } return result
 }
 
-const add = function(number1, number2) {
-    return number1 + number2;
+function add(number1, number2) {
+  return number1 + number2;
 };
   
-const subtract = function(number1, number2) {
+function subtract(number1, number2) {
   return number1 - number2;
 };
   
-const sum = function(numbers) {
+const sum = function(...numbers) {
   let result = 0
   for (i = 0; i < numbers.length; i++) {
   result += numbers[i];
   } return result
 };
   
-const multiply = function(numbers) {
-  let result = 1;
-  for (i = 0; i < numbers.length; i++) {
-    result = result * numbers[i];
-  } return result;
+function multiply(number1, number2)  {
+  return number1 * number2
 };
+
+function divide(number1, number2) {
+  return number1/number2
+}
+
+
 
 btn1.addEventListener('click',function(){})
 btn2.addEventListener('click',function(){})
