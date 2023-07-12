@@ -21,44 +21,61 @@ let number1 = 0
 let number2 = 0
 let operator = Any
 
-c
+function operate(number1, number2, operator) {
+  switch(operator) {
+    case "+":
+      result = add(number1, number2)
+      break
+    case '-':
+      result = subtract(number1, number2)
+      break
+    case 'X':
+      result = multiply(number1, number2)
+    case '÷':
+      result = 
+      break
+    default:
+      result = 'ERROR'
+  } return result
+}
+
 const add = function(number1, number2) {
     return number1 + number2;
-  };
+};
   
-  const subtract = function(number1, number2) {
-    return number1 - number2;
-  };
+const subtract = function(number1, number2) {
+  return number1 - number2;
+};
   
-  const sum = function(numbers) {
-    let result = 0
-    for (i = 0; i < numbers.length; i++) {
-      result += numbers[i];
-    } return result
-  };
+const sum = function(numbers) {
+  let result = 0
+  for (i = 0; i < numbers.length; i++) {
+  result += numbers[i];
+  } return result
+};
   
-  const multiply = function(numbers) {
-    let result = 1;
-    for (i = 0; i < numbers.length; i++) {
-      result = result * numbers[i];
-    } return result;
-  };
+const multiply = function(numbers) {
+  let result = 1;
+  for (i = 0; i < numbers.length; i++) {
+    result = result * numbers[i];
+  } return result;
+};
 
-  btn1.addEventListener('click',function(){})
-  btn2.addEventListener('click',function(){})
-  btn3.addEventListener('click',function(){})
-  btn4.addEventListener('click',function(){})
-  btn5.addEventListener('click',function(){})
-  btn6.addEventListener('click',function(){})
-  btn7.addEventListener('click',function(){})
-  btn8.addEventListener('click',function(){})
-  btn9.addEventListener('click',function(){})
-  btn0.addEventListener('click',function(){})
-  dot.addEventListener('click',function(){})
-  plus.addEventListener('click',function(){})
-  minus.addEventListener('click',function(){})
-  multi.addEventListener('click',function(){})
-  divide.addEventListener('click',function(){})
-  equal.addEventListener('click',function(){})
-  erase.addEventListener('click',function(){})
-  clear.addEventListener('click',function(){})
+btn1.addEventListener('click',function(){})
+btn2.addEventListener('click',function(){})
+btn3.addEventListener('click',function(){})
+btn4.addEventListener('click',function(){})
+btn5.addEventListener('click',function(){})
+btn6.addEventListener('click',function(){})
+btn7.addEventListener('click',function(){})
+btn8.addEventListener('click',function(){})
+btn9.addEventListener('click',function(){})
+btn0.addEventListener('click',function(){})
+dot.addEventListener('click',function(){})
+plus.addEventListener('click',function(){})
+minus.addEventListener('click',function(){})
+multi.addEventListener('click',function(){})
+divide.addEventListener('click',function(){})
+equal.addEventListener('click',function(){})
+erase.addEventListener('click',function(){})
+clear.addEventListener('click',function(){})
