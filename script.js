@@ -17,7 +17,11 @@ const erase = document.querySelector("erase")
 const dot = document.querySelector("dot")
 const clear = document.querySelector("clear")
 
+let number1 = 0
+let number2 = 0
+let operator = Any
 
+c
 const add = function(number1, number2) {
     return number1 + number2;
   };
