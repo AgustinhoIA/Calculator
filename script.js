@@ -1,4 +1,5 @@
 const numberButton = document.querySelectorAll(".number")
+const operatorBtn =document.querySelectorAll(".operator")
 
 const plus = document.querySelector(".sum")
 const minus = document.querySelector(".substract")
@@ -11,10 +12,12 @@ const clear = document.querySelector(".clear")
 
 let number1 = ""
 let number2 = "0"
-let operator = ""
+let operatorValue = ""
+let secondNumber = 1
+let display = `${number1}${operatorValue}${number2}`
 
-function operate(number1, number2, operator) {
-  switch(operator) {
+function operate(number1, number2, operatorValue) {
+  switch(operatorValue) {
     case " + ":
       result = add(number1, number2)
       break
@@ -47,31 +50,65 @@ function divide(number1, number2) {
   return number1/number2
 }
 
-
-function getNumber() {
-numberButton.forEach(button => {
-  button.addEventListener('click',function(){
-    let numberToDisplay = button.querySelector("p").textContent
-    number1 = number1 + `${numberToDisplay}`
-    console.log(Number(number1))
-  })
-})
-console.log(numberButton)
+function switchNumber(){
+  if (secondNumber == 1) {
+    secondNumber = 2
+  }
+  console.log(secondNumber)
 }
 
-/* next step is making a switch case into GetNumber in witch if a operetor has been imputed 
+function getNumber() {
+  numberButton.forEach(button => {
+    if (secondNumber == 1){
+        button.addEventListener('click',function(){
+        let numberToDisplay = button.querySelector("p").textContent
+        number1 = number1 + `${numberToDisplay}`
+        console.log("number1: " + Number(number1))
+        console.log(secondNumber)
+      })
+        console.log(secondNumber)
+    } else if (secondNumber == 2) {
+          button.addEventListener('click',function(){
+          let numberToDisplay = button.querySelector("p").textContent
+          number2 = number2 + `${numberToDisplay}`
+          console.log("number2: " +  Number(number2))
+          console.log(secondNumber)
+        })
+  
+    }
+  })
+}
+
+
+function getOperator() {
+  operatorBtn.forEach(opbtn => {
+    opbtn.addEventListener(`click`, switchNumber);
+    opbtn.addEventListener(`click`, function(){
+      let operatortToDisplay = opbtn.querySelector("p").textContent
+      operatorValue = `${operatortToDisplay}`
+      console.log(operatorValue)
+    });
+  })
+}
+
+function main(){
+  getNumber()
+  getOperator()
+}
+console.log(numberButton)
+console.log(operatorBtn)
+console.log(`display reads: ${display}` )
+
+
+/* next step is making a switch case into GetNumber in witch if a operator has been imputed 
 then any new number get puts into number 2, to do that any operator has to switch a variable to indicate that
  in principle the result in the display should show the numbers that you imput into then, the operator and the second number
  when you press equal that display should be replaced with the matematical result of the operation, and once you press any
  other number then it gets reseted to showing the current imput*/
  
 dot.addEventListener('click',function(){})
-plus.addEventListener('click',function(){})
-minus.addEventListener('click',function(){})
-multi.addEventListener('click',function(){})
-divi.addEventListener('click',function(){})
 equal.addEventListener('click',function(){})
 erase.addEventListener('click',function(){})
 clear.addEventListener('click',function(){})
 
-getNumber()
+main()
