@@ -11,10 +11,10 @@ const dot = document.querySelector(".dot")
 const clear = document.querySelector(".clear")
 
 let number1 = ""
-let number2 = "0"
+let number2 = ""
 let operatorValue = ""
 let secondNumber = 1
-let display = `${number1}${operatorValue}${number2}`
+let display = ""
 
 function operate(number1, number2, operatorValue) {
   switch(operatorValue) {
@@ -59,25 +59,20 @@ function switchNumber(){
 
 function getNumber() {
   numberButton.forEach(button => {
-    if (secondNumber == 1){
-        button.addEventListener('click',function(){
-        let numberToDisplay = button.querySelector("p").textContent
-        number1 = number1 + `${numberToDisplay}`
-        console.log("number1: " + Number(number1))
-        console.log(secondNumber)
-      })
-        console.log(secondNumber)
-    } else if (secondNumber == 2) {
-          button.addEventListener('click',function(){
+    button.addEventListener('click',function(){
+      if (secondNumber == 1){
           let numberToDisplay = button.querySelector("p").textContent
-          number2 = number2 + `${numberToDisplay}`
-          console.log("number2: " +  Number(number2))
-          console.log(secondNumber)
-        })
-  
-    }
+          number1 = number1 + `${numberToDisplay}`
+        } else if (secondNumber == 2) {
+            let numberToDisplay = button.querySelector("p").textContent
+            number2 = number2 + `${numberToDisplay}`
+          }
+          display = `${number1}${operatorValue}${number2}`
+          console.log(`display reads: ${display}`)
+    })
   })
 }
+
 
 
 function getOperator() {
