@@ -9,18 +9,19 @@ const equal = document.querySelector(".equal")
 const erase = document.querySelector(".erase")
 const dot = document.querySelector(".dot")
 const clear = document.querySelector(".clear")
+const clDisplay = document.querySelector(".display")
 
 let number1 = ""
 let number2 = ""
 let operatorValue = ""
-let secondNumber = 1
+let secondNumber = 0
 let display = ""
 let solution = ""
 
-function operate(operatorValue) {
-  let n1 = Number.number1
-  let n2 = Number.number2
-
+function operate(fn, sn, operatorValue) {
+  let n1 = fn
+  let n2 = sn
+  console.log(`n1: ${n1}, n2: ${n2}`)
   console.log(`operator is: ${operatorValue}`)
   switch(operatorValue) {
     case "+":
@@ -45,8 +46,8 @@ function operate(operatorValue) {
 
 
 function switchNumber(){
-  if (secondNumber == 1) {
-    secondNumber = 2
+  if (secondNumber == 0) {
+    secondNumber = 1
   }
   console.log(secondNumber)
 }
@@ -54,17 +55,17 @@ function switchNumber(){
 function getNumber() {
   numberButton.forEach(button => {
     button.addEventListener('click',function(){
-      if (secondNumber == 1){
+      if (secondNumber == 0){
           let numberToDisplay = button.querySelector("p").textContent
           number1 = number1 + `${numberToDisplay}`
-        } else if (secondNumber == 2) {
+        } else if (secondNumber == 1) {
             let numberToDisplay = button.querySelector("p").textContent
             number2 = number2 + `${numberToDisplay}`
           }
-          display = `${number1}${operatorValue}${number2}`
-          console.log(`display reads: ${display}`)
+      display = `${number1}${operatorValue}${number2}`
     })
   })
+  button.addEventListener('click', modifyDisplay)
 }
 
 function getOperator() {
@@ -75,18 +76,30 @@ function getOperator() {
       operatorValue = `${operatortToDisplay}`
       console.log(operatorValue)
     });
+    opbtn.addEventListener('click', modifyDisplay)
   })
 }
 
-function getResult(){
+function clearbtn(){
+  clear.addEventListener('click', function(){
+    number1 = ""
+    number2 = ""
+    solution = ""
+    secondNumber = 0
+  })
+  clear.addEventListener('click', modifyDisplay)
 }
+
+function modifyDisplay(){
+  clDisplay.textContent = `${number1} ${operatorValue} ${number2}`
+}
+
 function main(){
   getNumber()
   getOperator()
+  clearbtn();
   equal.addEventListener('click', function() {
-    console.log(number1)
-    console.log(number2)
-    operate(Number.number1,Number.number2,operatorValue)
+    operate(Number(number1), Number(number2), operatorValue)
     console.log(`solution is: ${solution}`)
     }
   )
@@ -96,11 +109,10 @@ console.log(operatorBtn)
 console.log(`display reads: ${display}` )
 
 
-/* next step is making a switch case into GetNumber in witch if a operator has been imputed 
-then any new number get puts into number 2, to do that any operator has to switch a variable to indicate that
- in principle the result in the display should show the numbers that you imput into then, the operator and the second number
- when you press equal that display should be replaced with the matematical result of the operation, and once you press any
- other number then it gets reseted to showing the current imput*/
+/*at the moment getNumber and getOperator woek as intended, but in main, the equal addeventListener
+only recognise opertatorValue into his parameters, number1 and number2 values are "undefined", this 
+seems to be an issue with the scope, but operatorValue works on the same scope isn`t givin any problems
+ */
  
 dot.addEventListener('click',function(){})
 erase.addEventListener('click',function(){})
