@@ -15,40 +15,34 @@ let number2 = ""
 let operatorValue = ""
 let secondNumber = 1
 let display = ""
+let solution = ""
 
-function operate(number1, number2, operatorValue) {
+function operate(operatorValue) {
+  let n1 = Number.number1
+  let n2 = Number.number2
+
+  console.log(`operator is: ${operatorValue}`)
   switch(operatorValue) {
-    case " + ":
-      result = add(number1, number2)
+    case "+":
+      result = n1 + n2;
+      console.log(result)
       break
-    case ' - ':
-      result = subtract(number1, number2)
+    case '-':
+      result = n1 - n2;
       break
-    case ' X ':
-      result = multiply(number1, number2)
-    case ' ÷ ':
-      result = divide(number1, number2)
+    case 'X':
+      result = n1 * n2
+    case '÷':
+      result = n1 / n2
       break
     default:
       result = 'ERROR'
-  } return result
+    } 
+    solution = result
+    return result
+    
 }
 
-function add(number1, number2) {
-  return number1 + number2;
-};
-  
-function subtract(number1, number2) {
-  return number1 - number2;
-};
-  
-function multiply(number1, number2)  {
-  return number1 * number2
-};
-
-function divide(number1, number2) {
-  return number1/number2
-}
 
 function switchNumber(){
   if (secondNumber == 1) {
@@ -73,8 +67,6 @@ function getNumber() {
   })
 }
 
-
-
 function getOperator() {
   operatorBtn.forEach(opbtn => {
     opbtn.addEventListener(`click`, switchNumber);
@@ -86,9 +78,18 @@ function getOperator() {
   })
 }
 
+function getResult(){
+}
 function main(){
   getNumber()
   getOperator()
+  equal.addEventListener('click', function() {
+    console.log(number1)
+    console.log(number2)
+    operate(Number.number1,Number.number2,operatorValue)
+    console.log(`solution is: ${solution}`)
+    }
+  )
 }
 console.log(numberButton)
 console.log(operatorBtn)
@@ -102,7 +103,6 @@ then any new number get puts into number 2, to do that any operator has to switc
  other number then it gets reseted to showing the current imput*/
  
 dot.addEventListener('click',function(){})
-equal.addEventListener('click',function(){})
 erase.addEventListener('click',function(){})
 clear.addEventListener('click',function(){})
 
