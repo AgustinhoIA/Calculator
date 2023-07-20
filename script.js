@@ -32,9 +32,13 @@ function operate(fn, sn, operatorValue) {
       result = n1 - n2;
       break
     case 'X':
-      result = n1 * n2
+      result = n1*n2
+      break
     case '÷':
-      result = n1 / n2
+      if (n2 === 0){
+        result = 'ERROR'
+      } else {
+        result = n1 / n2}
       break
     default:
       result = 'ERROR'
@@ -64,8 +68,8 @@ function getNumber() {
           }
       display = `${number1}${operatorValue}${number2}`
     })
+    button.addEventListener('click', modifyDisplay)
   })
-  button.addEventListener('click', modifyDisplay)
 }
 
 function getOperator() {
@@ -100,10 +104,14 @@ function main(){
   clearbtn();
   equal.addEventListener('click', function() {
     operate(Number(number1), Number(number2), operatorValue)
-    console.log(`solution is: ${solution}`)
-    }
-  )
+    clDisplay.textContent = `${solution}`
+    secondNumber = 0
+    number1 = solution
+    operatorValue = ""
+    number2 = ""
+  })
 }
+
 console.log(numberButton)
 console.log(operatorBtn)
 console.log(`display reads: ${display}` )
