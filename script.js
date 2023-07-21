@@ -74,12 +74,16 @@ function getNumber() {
 
 function getOperator() {
   operatorBtn.forEach(opbtn => {
-    opbtn.addEventListener(`click`, switchNumber);
     opbtn.addEventListener(`click`, function(){
-      let operatortToDisplay = opbtn.querySelector("p").textContent
-      operatorValue = `${operatortToDisplay}`
-      console.log(operatorValue)
+        if (secondNumber == 0){
+          let operatortToDisplay = opbtn.querySelector("p").textContent
+          operatorValue = `${operatortToDisplay}`
+        } else if (secondNumber == 1) {
+          operatortToDisplay = opbtn.querySelector("p").textContent
+          
+        }
     });
+    opbtn.addEventListener(`click`, switchNumber);
     opbtn.addEventListener('click', modifyDisplay)
   })
 }
@@ -117,10 +121,10 @@ console.log(operatorBtn)
 console.log(`display reads: ${display}` )
 
 
-/*at the moment getNumber and getOperator woek as intended, but in main, the equal addeventListener
-only recognise opertatorValue into his parameters, number1 and number2 values are "undefined", this 
-seems to be an issue with the scope, but operatorValue works on the same scope isn`t givin any problems
- */
+/* the basic are done, now what i need to to next is create a sistem that lets imput more than
+one calculation, after the first par of numbers any further operator will act also as an equal, 
+but the display will keep showing all the numbers until user press equal, that probably wont work 
+sure exist a easiest way of making this*/
  
 dot.addEventListener('click',function(){})
 erase.addEventListener('click',function(){})
